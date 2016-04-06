@@ -26,9 +26,8 @@ class Amazon_Wishlist_Hack extends WP_Widget{
   function update ($new, $old){
     $count = $new['count'];
     if ($count <= 0) $count = 1;
-    if ($count > 10) $count = 10; // limit on a single request by Amazon
     $new['count'] = $count;
-    return array_merge ($old, $new); // do I need to be paranoid about XSS in a control panel?
+    return array_merge ($old, $new);
   } // options update
   function form ($instance){
     extract ($instance, EXTR_SKIP);
